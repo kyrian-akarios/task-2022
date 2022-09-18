@@ -1,0 +1,30 @@
+.search-bar{
+    display:flex;
+    flex-direction: column;
+}
+#search-options{
+    display:relative;
+    top:-10px;
+}
+#search:focus ~ #search-options{
+    display: block;
+    
+
+}
+#search-options:focus{
+    display:block !important;
+}
+
+#search-options p{
+    box-shadow:1px 1px 1px 1px rgba(0,0,0,0.3);
+    margin:0;
+
+
+}
+#search-options p:hover{
+    
+}
+form{
+    display:flex;
+    flex-direction: row;
+}
