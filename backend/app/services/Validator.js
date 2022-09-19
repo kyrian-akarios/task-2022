@@ -20,7 +20,8 @@ class Validator{
      * @description - validates pupilID through checking for alphanumeric characters and '-'
      */
     static validatePupilID(pupil_id){
-        if(/[^#!"£$%^&*()]/){
+        if(/[#!"£$%^&*]/.test(pupil_id)){
+            return false;
 
         }
         return true;

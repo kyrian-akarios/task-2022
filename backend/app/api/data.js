@@ -20,7 +20,7 @@ const Validator = require('../services/Validator')
 router.get('/data', (req,res)=>{
     let pupil_id = req.query.pupil_id
     if(!Validator.validatePupilID(pupil_id)){
-        res.status(400).json({message:"Sorry, your fields are invalid", error:true})
+        return res.status(400).json({message:"Sorry, your fields are invalid", error:true})
     }
     handle.all(`SELECT AssessmentYear, AssessmentTerm, StatementID FROM data WHERE PupilID = '${pupil_id}'`, (err,rows)=>{
         if(err){
