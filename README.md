@@ -34,7 +34,7 @@ The following are optional features, within the `optional-features` branch of ta
 This section attempts to explain the features of the application and its parts. It is comprised of 3 distinct sections:
 - the frontend
 - the backend
-
+- general development
 ### Frontend
 My main aim for designing the frontend was to create a smooth and flat interface that could be quickly designed in the time given. Hence, the flat colours and such. As an optional feature, I added animations - through the @keyframes rule. I also included accessibility through aria-labels and through <label> so that people with difficulty perusing web pages can also access the site. 
 
