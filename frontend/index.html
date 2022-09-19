@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <title>Dashboard - SchoolSystem101</title>
     <title>Homepage - SchoolSystem101</title>
 </head>
 <header>
@@ -14,9 +15,13 @@
         <p>A school system to look at your child's achievements!</p>
         <p>Please enter a name into the search bar below, or click on a name.</p>
     </section>
+    <section id="error">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p>An error occured</p>
+    </section>
     <form action="dashboard.html" autocomplete="off">
         <section class="search-bar">
-        <input type="text" id="search" name="search" pattern="^[a-zA-Z,]*$" title="Name" placeholder="Enter a first name..."/>
+        <input type="text" id="search" name="search" pattern="^[a-zA-Z ,]*$" title="Name" placeholder="Enter a first name..."/>
         <button id="search-button" type="submit">Submit</button>
         </section>
         <section id="search-options">

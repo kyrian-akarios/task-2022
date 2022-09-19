@@ -17,23 +17,22 @@ const Validator = require('../services/Validator')
  * @route - statements
  * @description - queries database for statements through statement ID
  */
-router.get('/statements', (req,res)=>{
-    let statement_id = req.query.statement_id
-    if(!Validator.validateStatementID(statement_id)){
-        res.status(400).json({message:"Sorry, your fields are invalid", error:true})
+router.post('/statements', (req,res)=>{
+    let statement_ids = JSON.parse(req.body.statement_ids)
+ 
+    const stmt = handle.prepare(`SELECT STATEMENT FROM statements WHERE StatementID = (?)`)
+    let result = []
+    for(id of statement_ids){
+        if(!Validator.validateStatementID(id)){
+            res.status(400).json({message:"Sorry, your fields are invalid", error:true})
+        }
+        stmt.each(id, (err,row)=>{
+            if(err) res.status(500).json({message:"Sorry, an error occurred, please try again later.", error:true})
+            result.push(row)
+        })
     }
-    handle.all(`SELECT Statement FROM statements WHERE StatementID = '${statement_id}'`, (err,rows)=>{
-        if(err){
-            res.status(500).json({message:"Sorry, something went wrong."});
-        }
-        else{
-            let results = []
-            rows.forEach(row=>{
-                console.log(row)
-                results.push(row)
-            })
-            res.status(200).json({results:results,message:"Success!"});
-        }
+    stmt.finalize(()=>{
+        res.status(200).json({results:result, message:"Success!", success:true})
     })
 })
 

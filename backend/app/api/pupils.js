@@ -39,7 +39,6 @@ router.get('/pupils', (req,res)=>{
  */
 router.get('/pupils/search', (req,res)=>{
     let name = req.query.name
-    console.log(name)
     handle.all(`SELECT Firstname, Surname FROM pupils WHERE Firstname LIKE '${name}%'`, (err,rows)=>{
         if(err){
             res.status(500).json({message:"Sorry, something went wrong."});

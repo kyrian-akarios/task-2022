@@ -21,7 +21,13 @@ app.use('/api/', require('./api/data'))
 app.use('/api/', require('./api/schools'))
 
 app.listen(3000, ()=>{
-        console.log("Listening in on" + 3000)
+        console.log("Listening in on " + 3000)
 })
+
+
+// server.close((err)=>{
+//         if(err) console.log(err)
+//         console.log("Closing server...")
+// })
 
 

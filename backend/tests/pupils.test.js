@@ -23,7 +23,9 @@
     })
     describe('#/search', ()=>{
         it('should return a set of pupils matching the name', ()=>{
-            axios.get('http://localhost:3000/api/pupils/search')
+            axios.get('http://localhost:3000/api/pupils/search', {
+                first_name:'Maisie'
+            })
             .then(res=>{
                 assert.equal(res.status, 200)
             }) 
@@ -31,7 +33,10 @@
     })
     describe('#/searchByName', ()=>{
         it('should return a set of information from the database', ()=>{
-            axios.get('http://localhost:3000/api/pupils/searchByName')
+            axios.get('http://localhost:3000/api/pupils/searchByName',{
+                first_name:'Maisie',
+                surname:'Hussain'    
+            })
             .then(res=>{
                 assert.equal(res.status, 200)
             })

@@ -15,7 +15,7 @@
  describe('Schools API', ()=>{
     describe('#/', ()=>{
         it('should return a set of schools from the database.', ()=>{
-            axios.get('http://localhost:3000/api/schools')
+            axios.get('http://localhost:3000/api/schools?school_id=1')
             .then(res=>{
                 assert.equal(res.status, 200);
             })

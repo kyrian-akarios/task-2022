@@ -16,7 +16,12 @@ function makeRequest(url){
     let request = new XMLHttpRequest()
     request.open('GET', url)
     request.send()
-    request.onload = function(){
+    request.onerror=(err)=>{
+        let error = document.getElementById("error")
+        error.style.display = "flex";
+    }
+    request.onload = function(err){
+        if(err) console.log(err)
         data = JSON.parse(this.response);
         let options = document.getElementById('search-options')
         options.innerHTML = ''

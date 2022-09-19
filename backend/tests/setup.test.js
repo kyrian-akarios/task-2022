@@ -15,7 +15,7 @@ const db = require('../app/services/DatabaseReader')
 describe('Database', ()=>{
     describe('#connect()', ()=>{
         it('should return a database handle for SQLite.', ()=>{
-            assert.doesNotThrow(db.getInstance())
+            assert.doesNotThrow(()=>db.getInstance())
         })
     })
 })
@@ -27,7 +27,7 @@ describe('Database', ()=>{
 describe('Application', ()=>{
     describe('#listen()', ()=>{
         it('should open the socket for listening.', ()=>{
-            assert.doesNotThrow(app.listen(3000))
+            assert.doesNotThrow(()=>app.listen(3000))
         })
     })
     

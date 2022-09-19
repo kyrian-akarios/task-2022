@@ -19,56 +19,57 @@ function getInformation(){
     let year 
     let date_of_birth
     try{
-    request.open('GET', `http://localhost:3000/api/pupils/searchByName?first_name=${first_name}&surname=${surname}`)
-    request.send()
-    
-    request.onload = function(){
-        data = JSON.parse(this.response);
-        console.log(data)
-        pupil_id = data.pupils[0].ID
-        school_id = data.pupils[0].SchoolID
-        gender = data.pupils[0].Gender
-        ethnicity = data.pupils[0].Ethnicity 
-        year = data.pupils[0].YearReal
-        date_of_birth = data.pupils[0].DateOfBirth
-        fillPupilInformation(first_name, surname, gender, ethnicity, year, date_of_birth)
+        request.open('GET', `http://localhost:3000/api/pupils/searchByName?first_name=${first_name}&surname=${surname}`)
+        request.send()
         
-        let second_request = new XMLHttpRequest()
-        second_request.open('GET', `http://localhost:3000/api/data?pupil_id=${pupil_id}`)
-        second_request.send()
-        second_request.onload = function(){
-            data = JSON.parse(this.response)
-            let statement_ids = []
-            let assessment_year = data.data[0].AssessmentYear
-            let assessment_term = data.data[0].AssessmentTerm
-            let statement_id = data.data.forEach(data=> statement_ids.push(data.StatementID));
-            fillAssessmentInformation(assessment_term, assessment_year)
-            third_request = new XMLHttpRequest();
-            third_request.open('GET', `http://localhost:3000/api/schools?school_id=${school_id}`)
-            third_request.send()
-            third_request.onload = function(){
+        request.onload = function(){
+            data = JSON.parse(this.response);
+            console.log(data)
+            pupil_id = data.pupils[0].ID
+            school_id = data.pupils[0].SchoolID
+            gender = data.pupils[0].Gender
+            ethnicity = data.pupils[0].Ethnicity 
+            year = data.pupils[0].YearReal
+            date_of_birth = data.pupils[0].DateOfBirth
+            fillPupilInformation(first_name, surname, gender, ethnicity, year, date_of_birth)
+            
+            let second_request = new XMLHttpRequest()
+            second_request.open('GET', `http://localhost:3000/api/data?pupil_id=${pupil_id}`)
+            second_request.send()
+            second_request.onload = function(){
                 data = JSON.parse(this.response)
-                console.log(data)
-                let school_name = data.results[0].schoolName
-                fillSchoolInformation(school_name)
-            }
-            statement_ids.forEach(id=>{
+                let statement_ids = []
+                let assessment_year = data.data[0].AssessmentYear
+                let assessment_term = data.data[0].AssessmentTerm
+                let statement_id = data.data.forEach(data=> statement_ids.push(data.StatementID));
+                fillAssessmentInformation(assessment_term, assessment_year)
+                third_request = new XMLHttpRequest();
+                third_request.open('GET', `http://localhost:3000/api/schools?school_id=${school_id}`)
+                third_request.send()
+                third_request.onload = function(){
+                    data = JSON.parse(this.response)
+                    console.log(data)
+                    let school_name = data.results[0].schoolName
+                    fillSchoolInformation(school_name)
+                }
+             
                 let fourth_request = new XMLHttpRequest();
-                fourth_request.open('GET', `http://localhost:3000/api/statements?statement_id=${id}`)
-                fourth_request.send()
+                fourth_request.open('POST', 'http://localhost:3000/api/statements')
+                fourth_request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+                fourth_request.send("statement_ids="+JSON.stringify(statement_ids))
                 fourth_request.onload = function(){
                     data = JSON.parse(this.response)
-                    let statement = data.results[0].Statement
-                    fillStatementInformation(statement)
+                    for(row of data.results){
+                        fillStatementInformation(row.Statement)
+                    }
+                    
                 }
-
-            })
+            }
         }
-    }
     }
     catch(e){
         let error = document.getElementById("error")
-        error.style.display = "block";
+        error.style.display = "flex";
 
     }
 }
