@@ -50,3 +50,12 @@ I had a main server file from which I would import all other files, such as the 
 Validation and security are also present within the backend - through server-side validation carried out by the Validator class. This class uses static functions that act upon regex patterns - which can easily be called when needed. Security-wise - the database handler has a function that allows for prepared statements, binding them to values, and then executing them. I did not make use of this until the /statements API - as I needed to call multiple SQL statements repeatedly. Otherwise, I believe the server-side validation would have been enough due to simply being SELECT statements.
 
 Testing of the backend was mainly comprised of using Mocha, as it is a well-known and reliable testing framework. I also like its declarative syntax as it makes code much easier to read.
+
+### General Development
+I used branch development within Github so that I could manage my work effectively. Once I was done with the core features - I moved onto optional features, and created a new branch for that - which lets me rollback changes if needed.
+
+In general, I wanted this task to be a focus on error handling, validation, and security - as these are the qualities of a robust application, and robustness is important within web development. I also wanted to focus on clear and sleek design, hence the colour schemes and flat UI design - so that it's visual hierarchy isn't weakened by other elements. 
+
+I would have liked to implement some other features with more time, such as:
+- an authentication system
+- being able to select schools from the main page
