@@ -16,7 +16,7 @@ Then, run the following command in the directory which contains `bootstrap.js`:
     node bootstrap.js
 ```
 
-Then, 
+Then, go to the `index.html` file in /frontend in your local browser.
 
 ## Testing
 Testing can be carried out by running the following command in the test directory:
