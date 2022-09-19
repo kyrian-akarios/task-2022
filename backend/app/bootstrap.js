@@ -19,15 +19,9 @@ app.use('/api/', require('./api/pupils'))
 app.use('/api/', require('./api/statements'))
 app.use('/api/', require('./api/data'))
 app.use('/api/', require('./api/schools'))
-
+app.use('/api/', require('./api/report'))
 app.listen(3000, ()=>{
         console.log("Listening in on " + 3000)
 })
-
-
-// server.close((err)=>{
-//         if(err) console.log(err)
-//         console.log("Closing server...")
-// })
 
 
