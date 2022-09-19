@@ -1,15 +1,23 @@
-.search-bar{
+
+/**
+homepage
+**/
+.home{
     display:flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width:100%;
 }
-#search-options{
-    display:relative;
-    top:-10px;
+.search-bar{
+    display:flex;
+    flex-direction: row;
 }
-#search:focus ~ #search-options{
-    display: block;
-    
 
+#search{
+    width:75vw;
+    padding:.5em;
 }
 #search-options:focus{
     display:block !important;
@@ -22,9 +30,139 @@
 
 }
 #search-options p:hover{
+    background-color:white;
     
 }
 form{
     display:flex;
+    flex-direction: column;
+}
+
+/**
+
+header/footer**/
+header{
+    background-color:hotpink;
+    padding:.5em;
+    color:white;
+}
+footer{
+    background-color:hotpink;
+    padding:.5em;
+    color:white;
+    font-family:'Segoe UI';
+    margin-top:1em;
+}
+/**
+general
+**/
+#error{
+    display:flex;
     flex-direction: row;
+    align-items: center;
+}
+#error > *{
+    padding:.5em;
+    margin: .5em 0 .5em 0;
+}
+#error i{
+    background-color:darkred;
+    color:white;
+}
+#error p{
+    width:100%;
+    background-color:salmon;
+
+}
+body{
+    margin:0;
+    background-color: pink;
+    font-size:1em;
+}
+
+.page{
+    margin:0 1em 0 1em;
+}
+.detail>*{
+    font-size:1em;
+    
+}
+.heading h1{
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+h2{
+    font-family:'Segoe UI';
+}
+.heading p{
+    font-family: 'Segoe UI';
+}
+p{
+    font-family:'Segoe UI'
+}
+/**
+dashboard
+**/
+.profile{
+    background-color: white;
+    padding:1em;
+    border-radius:10px;
+    margin-bottom:2em;
+}
+.assessment{
+    background-color:white;
+    padding:1em;
+    border-radius:10px;
+
+}
+.assessment_details{
+    
+    display:flex;
+    flex-direction: column;
+}
+.details{
+    display:flex;
+    flex-direction: row;
+}
+.detail{
+    display:flex;
+    margin:1em;
+    flex-direction: column;
+}
+
+.assessment_details > .detail{
+    margin:1em;
+    justify-content: center;
+    align-items: center;
+}
+.statements{
+    height:200px;
+    overflow-y: scroll;
+}
+.charts{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.item{
+    margin:1em;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table td{
+    border:1px solid black;
+}
+
+.chart-section{
+    background-color:white;
+    padding:1em;
+    border-radius:10px;
+    margin-top:2em;
+
+}
+
+.charts{
+    flex-wrap:wrap;
 }

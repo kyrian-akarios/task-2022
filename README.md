@@ -1,10 +1,5 @@
 # Example School Dashboard and Report Template System
 
-## Configuration
-Configure your settings in `.env`.
-
-Example:
-PORT=?
 
 ## Run
 In order to run the server, you need to have installed the following:
@@ -21,3 +16,8 @@ Then, run the following command in the directory which contains `bootstrap.js`:
     node bootstrap.js
 ```
 
+## Testing
+Testing can be carried out by running the following command in the test directory:
+```
+    npm test .
+```

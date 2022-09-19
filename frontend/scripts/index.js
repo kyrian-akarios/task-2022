@@ -27,7 +27,12 @@ function makeRequest(url){
 
     }
 }
-
+/**i 
+ * @function - createSearchOptions
+ * @description - takes in first/surname and appends to search options
+ * @param {string} firstname 
+ * @param {string} surname 
+ */
 function createSearchOptions(firstname, surname){
     let options = document.getElementById('search-options')
     let new_p = document.createElement("p");
@@ -36,7 +41,10 @@ function createSearchOptions(firstname, surname){
     options.appendChild(new_p)
 
 }
-
+/**
+ * @function - setupSearch
+ * @description - sets up search event listeners
+ */
 function setupSearch(){
     let search = document.getElementById('search')
     search.addEventListener('change',(e)=>{
@@ -46,7 +54,10 @@ function setupSearch(){
     })
 
 }
-
+/**
+ * @function - setupOptions
+ * @description - sets up event listeners for options
+ */
 function setupOptions(){
     let search = document.getElementById('search')
     let options = document.getElementById('search-options')
@@ -58,8 +69,5 @@ function setupOptions(){
     }
 }
 
-function search(firstname){
-
-}
 
 initialize()

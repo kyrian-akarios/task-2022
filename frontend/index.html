@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
     <title>Homepage - SchoolSystem101</title>
 </head>
-<div class="page">
+<header>
+    <p>Task for IdeasBarn 2022</p>
+</header>
+<section class="page home">
+    <section class="heading">
+        <h1>SchoolSystem101</h1>
+        <p>A school system to look at your child's achievements!</p>
+        <p>Please enter a name into the search bar below, or click on a name.</p>
+    </section>
     <form action="dashboard.html" autocomplete="off">
-        <div class="search-bar">
-        <input type="text" id="search" name="search"/>
-        <div id="search-options">
+        <section class="search-bar">
+        <input type="text" id="search" name="search" pattern="^[a-zA-Z,]*$" title="Name" placeholder="Enter a first name..."/>
+        <button id="search-button" type="submit">Submit</button>
+        </section>
+        <section id="search-options">
             <!---supposed to be empty - will be filled in by API-->
-        </div>
-        </div>
-        <button type="submit">Submit</button>
+        </section>
     </form>
-</div>
+</section>
 
 
 <script type="text/javascript" src="./scripts/index.js"></script>
