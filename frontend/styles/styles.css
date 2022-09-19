@@ -9,6 +9,7 @@ homepage
     align-items: center;
     text-align: center;
     width:100%;
+    animation:fadeIn 2s;
 }
 .search-bar{
     display:flex;
@@ -109,17 +110,22 @@ dashboard
     padding:1em;
     border-radius:10px;
     margin-bottom:2em;
+    animation:fadeIn 1s;
 }
 .assessment{
     background-color:white;
     padding:1em;
     border-radius:10px;
+    animation:fadeIn 1s;
+    animation-delay:1s;
+    animation-fill-mode: backwards;
 
 }
 .assessment_details{
     
     display:flex;
     flex-direction: column;
+    
 }
 .details{
     display:flex;
@@ -139,11 +145,13 @@ dashboard
 .statements{
     height:200px;
     overflow-y: scroll;
+    
 }
 .charts{
     display:flex;
     flex-direction: row;
     justify-content: center;
+  
 }
 .item{
     margin:1em;
@@ -161,9 +169,26 @@ table td{
     padding:1em;
     border-radius:10px;
     margin-top:2em;
+    animation:fadeIn 1s;
+    animation-delay:2s;
+    animation-fill-mode: backwards;
 
 }
 
 .charts{
     flex-wrap:wrap;
+}
+
+/**animations**/
+@keyframes fadeIn{
+    from {
+        transform:translateX(-50px);
+        opacity:0;
+
+    }
+    to {
+        transform:translateX(0px);
+        opacity:1;
+
+    }
 }

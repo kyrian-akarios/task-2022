@@ -21,7 +21,10 @@
     </section>
     <form action="dashboard.html" autocomplete="off">
         <section class="search-bar">
-        <input type="text" id="search" name="search" pattern="^[a-zA-Z ,]*$" title="Name" placeholder="Enter a first name..."/>
+        <label>
+            Search:
+            <input aria-label="search" type="text" id="search" name="search" pattern="^[a-zA-Z ,]*$" title="Name" placeholder="Enter a first name..."/>
+        </label>
         <button id="search-button" type="submit">Submit</button>
         </section>
         <section id="search-options">
