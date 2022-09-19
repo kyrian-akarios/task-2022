@@ -15,7 +15,10 @@
  describe('Statements API', ()=>{
     describe('#/', ()=>{
         it('should return a set of statements from the database.', ()=>{
-            axios.get('http://localhost:3000/api/statements')
+            axios.post('http://localhost:3000/api/statements',{
+                statement_ids:['33','31']
+            }
+            )
             .then(res=>{
                 assert.equal(res.status, 200);
             })
